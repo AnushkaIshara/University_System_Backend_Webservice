@@ -52,6 +52,7 @@ const RegisterNewUser = async(req , res) => {
             gender,
             birthday,
             imageurl,
+            password: EncryptedPassword,
             userType,
             dateCreated,
             timeCreated,
@@ -80,8 +81,63 @@ const RegisterNewUser = async(req , res) => {
 
 }
 
+//------------------ Function to login user ----------------
+const LoginUser = async(req, res) =>{
+    // ----------------Request Body -------------
+    const {
+        email,
+        password
+    } = req.body;
+    try {
+         // ----- Check if email already exist or not------
+         const User = await UserModel.findOne({email}).exec();
+
+         if(!User){
+            return res.status(400).json({
+                status:false,
+                error:{
+                    message:"Wrong email!"
+                }
+            });
+        }
+        // ----- check password match or not -----
+        const PasswordMatch = await bcrypt.compare(password , User.password);
+
+        if(!PasswordMatch){
+            return res.status(401).json({
+                status:false,
+                error:{
+                    message:"Wrong password!"
+                }
+            });          
+        }
+    
+        return res.status(200).json({
+            status:true,
+            user:User,
+            Success:{
+                message:"Login Successfully!"
+            }
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).jason({
+            status:false,
+            error:{
+                message:"Login Fail due to server error!"
+            }
+        });
+        
+    }
+
+
+}
+
+
 //----------export -----------
 
 module.exports = {
     RegisterNewUser,
+    LoginUser,
 }

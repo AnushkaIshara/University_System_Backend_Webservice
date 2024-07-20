@@ -13,6 +13,9 @@ const {
 const app = express();
 const PORT = config.PORT || 3308;
 
+//-------------Accept Json------------
+app.use(express.json());
+
 //-----------------Base Routes--------------------
 app.get("/", (request, response) => {
     response.status(200).json({
@@ -23,11 +26,11 @@ app.get("/", (request, response) => {
 
 // -------------------User Route-----------------
 app.use("/api/users" , UserRoutes);
- 
+
 
 //-----------------Error Route----------------
 app.use((Request , Response) => {
-    response.status(404).json({
+    Response.status(404).json({
         status:false,
         message:"Not Found!"
     });
