@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\api\\v1\\controllers",
+    "\\src\\api\\v1\\libraries",
+    "\\src\\api\\v1\\middlewears",
+    "\\src\\api\\v1\\models",
+    "\\src\\api\\v1\\routes"
+  ],
+  "SelectedNode": "\\.gitignore",
+  "PreviewInSolutionExplorer": false
+}

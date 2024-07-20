@@ -1,0 +1,28 @@
+{
+  "name": "umbackend_web_service",
+  "version": "1.0.0",
+  "description": "Backend system of University Management system.",
+  "main": "index.js",
+  "scripts": {
+    "start":"nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "University",
+    "Campus",
+    "Management",
+    "System",
+    "Reportings",
+    "Budgeting",
+    "Sustainable",
+    "management"
+  ],
+  "author": "ishara",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.1",
+    "nodemon": "^3.1.4"
+  }
+}
