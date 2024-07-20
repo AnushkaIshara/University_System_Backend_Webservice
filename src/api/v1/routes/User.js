@@ -6,6 +6,7 @@ const {
     RegisterNewUser,
     LoginUser,
     GetAllUsers,
+    GetUserById,
 } = require("../controllers");
 
 //------------------------------------Initialize the routers
@@ -21,6 +22,9 @@ router.post("/login" , LoginUser)
 
 // -------Get All users Route----
 router.get("/all", GetAllUsers);
+
+//------Get user by ID----
+router.get("/one/:UserId", GetUserById);
 
 //export----
 module.exports = router;

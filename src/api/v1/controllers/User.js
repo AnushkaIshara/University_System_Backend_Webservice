@@ -159,10 +159,47 @@ const GetAllUsers = async(req, res) => {
     }
 }
 
+// ---------------- function to get user by id -----------
+
+const GetUserById = async(req, res) => {
+    //----------Request Param-----------
+    const {UserId} = req.params;
+    console.log(UserId);
+    try {
+        //--------check user id available----
+        const User = await UserModel.findOne({_id:UserId}).exec();
+        if(!User){
+            return res.status(404).json({
+                status:false,
+                error:{
+                    message:"No user available for provided ID"
+                }
+            });
+        }
+        return res.status(200).json({
+            status:true,
+            user:User,
+            Success:{
+                message:"Data Fetch Success!"
+            }
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).jason({
+            status:false,
+            error:{
+                message:"Cant get user details due to server error!"
+            }
+        });
+    }   
+
+}
+
 //----------export -----------
 
 module.exports = {
     RegisterNewUser,
     LoginUser,
     GetAllUsers,
+    GetUserById,
 }
