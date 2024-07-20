@@ -5,6 +5,7 @@ const express = require("express");
 const {
     RegisterNewUser,
     LoginUser,
+    GetAllUsers,
 } = require("../controllers");
 
 //------------------------------------Initialize the routers
@@ -17,5 +18,9 @@ router.post("/register", RegisterNewUser);
 
 // ----- login Route -----
 router.post("/login" , LoginUser)
+
+// -------Get All users Route----
+router.get("/all", GetAllUsers);
+
 //export----
 module.exports = router;
