@@ -4,6 +4,8 @@ const {
     LoginUser,
     GetAllUsers,
     GetUserById,
+    UpdateUser,
+    DeleteUser,
 } = require("./User");
 
 //--------------Exports-------------------------------
@@ -11,5 +13,7 @@ module.exports = {
     RegisterNewUser,
     LoginUser,
     GetAllUsers,
-    GetUserById,       
+    GetUserById,
+    UpdateUser, 
+    DeleteUser,      
 }
