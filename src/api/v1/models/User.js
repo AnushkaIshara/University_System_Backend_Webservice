@@ -47,7 +47,7 @@ const UserModel = new mongoose.Schema({
     },
     timeCreated:{
         type:String,
-        require:True
+        require:true
     },
     dateUpdated: {
         type:String,
@@ -55,7 +55,7 @@ const UserModel = new mongoose.Schema({
     },
     timeUpdated: {
         type:String,
-        require:True
+        require:true
     }
 
 

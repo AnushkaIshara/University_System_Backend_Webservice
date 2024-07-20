@@ -5,6 +5,9 @@ require("dotenv/config");
 //-----------------Custom Libraries and Modules--------
 const config = require("./configurations");
 const {ConnectDatabase} = require("./api/v1/libraries");
+const {
+    UserRoutes,
+} = require("./api/v1/routes");
 
 //-----------------Global Instance --------------
 const app = express();
@@ -17,6 +20,10 @@ app.get("/", (request, response) => {
         message: "Welcome to the server!"
     });
 });
+
+// -------------------User Route-----------------
+app.use("/api/users" , UserRoutes);
+ 
 
 //-----------------Error Route----------------
 app.use((Request , Response) => {
