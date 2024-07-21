@@ -16,14 +16,14 @@ try {
 
     return {
         status:true,
-        AccessToken:AccessToken
+        accessToken:AccessToken
     }
 
 } catch (error) {
     console.log(error);
     return {
         status:false,
-        AccessToken:null
+        accessToken:null
     }
 }
 }
