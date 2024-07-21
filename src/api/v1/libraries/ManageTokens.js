@@ -12,7 +12,7 @@ try {
     const Playload = {id:user._id , userType: user.userType};
 
     //----------------Generate Access Token--------------
-    const AccessToken = jwt.sign(Playload, Config.JWT_ACCESS_KEY ,{ expiresIn:"2min"});
+    const AccessToken = jwt.sign(Playload, Config.JWT_ACCESS_KEY ,{ expiresIn:"1h"});
 
     return {
         status:true,

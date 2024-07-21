@@ -11,6 +11,9 @@ const {
     DeleteUser,
 } = require("../controllers");
 
+const {
+    AuthenticateUser, 
+} = require("../middlewears");
 //------------------------------------Initialize the routers
 const router = express.Router();
 
@@ -23,7 +26,7 @@ router.post("/register", RegisterNewUser);
 router.post("/login" , LoginUser)
 
 // -------Get All users Route----
-router.get("/all", GetAllUsers);
+router.get("/all", AuthenticateUser ,GetAllUsers);
 
 //------Get user by ID----
 router.get("/one/:UserId", GetUserById);
